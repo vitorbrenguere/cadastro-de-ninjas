@@ -1,10 +1,16 @@
-package com.cadastrodeninjas;
+package com.cadastrodeninjas.Ninjas;
+
+import com.cadastrodeninjas.Missoes.MissoesModel;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
+import java.util.List;
 
 
 @Entity //@Entity transforma uma classe em uma ENTIDADE no banco de dados
@@ -14,9 +20,19 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //(strategia de ID)
     private long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    @ManyToOne //relação do banco de dados ----- MUITOS ninjas pra UMA(mesma) missao
+    @JoinColumn(name = "missoes_id") // chave estrangeira = Foreing Key FK (Banco de Dados Relacional SQL)
+    private MissoesModel missoes;
+
+
+
 
     public NinjaModel() {
     }
