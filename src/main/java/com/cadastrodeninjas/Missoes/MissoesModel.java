@@ -1,6 +1,7 @@
 package com.cadastrodeninjas.Missoes;
 
 import com.cadastrodeninjas.Ninjas.NinjaModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,7 @@ import java.util.List;
 public class MissoesModel {
 
     @Id
+    @Column (unique = true)
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
